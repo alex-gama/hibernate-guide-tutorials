@@ -17,6 +17,14 @@ public class Employee {
 	private String lastName;
 	
 	private Long age;
+	
+	Employee() {}
+	
+	public Employee(String firstName, String lastName, Long age) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.age = age;
+	}
 
 	public Long getId() {
 		return id;
