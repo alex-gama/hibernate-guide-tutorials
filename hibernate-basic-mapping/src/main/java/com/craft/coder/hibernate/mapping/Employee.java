@@ -1,10 +1,18 @@
 package com.craft.coder.hibernate.mapping;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Employee {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private String firtName;
+	private String firstName;
 	
 	private String lastName;
 	
@@ -18,12 +26,12 @@ public class Employee {
 		this.id = id;
 	}
 
-	public String getFirtName() {
-		return firtName;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setFirtName(String firtName) {
-		this.firtName = firtName;
+	public void setFirstName(String firtName) {
+		this.firstName = firtName;
 	}
 
 	public String getLastName() {

@@ -7,6 +7,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AvailableSettings;
 import org.hibernate.cfg.Configuration;
 
+import com.craft.coder.hibernate.mapping.Employee;
+
 public class HibernateConnection {
 
 	private static SessionFactory sessionFactory;
@@ -31,9 +33,10 @@ public class HibernateConnection {
 				    .setProperty(AvailableSettings.URL, "jdbc:mysql://localhost:3306/hibernate-guide-tutorials")
 				    .setProperty(AvailableSettings.USER, "root")
 				    .setProperty(AvailableSettings.PASS, "")
-				    .setProperty(AvailableSettings.HBM2DDL_AUTO, "update")
+				    .setProperty(AvailableSettings.HBM2DDL_AUTO, "none")
 				    .setProperty(AvailableSettings.SHOW_SQL, "true")
-				    .setProperty(AvailableSettings.FORMAT_SQL, "true");
+				    .setProperty(AvailableSettings.FORMAT_SQL, "true")
+				    .addAnnotatedClass(Employee.class);
 	
 			sessionFactory = cfg.buildSessionFactory();
 		}
