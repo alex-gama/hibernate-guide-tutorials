@@ -4,12 +4,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.TableGenerator;
 
 @Entity
 public class Employee {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.TABLE, generator = "employee")
+	@TableGenerator(
+			name = "employee",
+			table = "EmployeeGenerator",
+			pkColumnName = "pKey",
+			valueColumnName = "next_value",
+			pkColumnValue = "id",
+			allocationSize = 30)
 	private Long id;
 	
 	private String firstName;
