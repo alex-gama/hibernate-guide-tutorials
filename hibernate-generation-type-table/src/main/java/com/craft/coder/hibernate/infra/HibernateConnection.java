@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AvailableSettings;
 import org.hibernate.cfg.Configuration;
 
+import com.craft.coder.hibernate.mapping.Customer;
 import com.craft.coder.hibernate.mapping.Employee;
 
 public class HibernateConnection {
@@ -36,7 +37,8 @@ public class HibernateConnection {
 				    .setProperty(AvailableSettings.HBM2DDL_AUTO, "update")
 				    .setProperty(AvailableSettings.SHOW_SQL, "true")
 				    .setProperty(AvailableSettings.FORMAT_SQL, "true")
-				    .addAnnotatedClass(Employee.class);
+				    .addAnnotatedClass(Employee.class)
+					.addAnnotatedClass(Customer.class);
 	
 			sessionFactory = cfg.buildSessionFactory();
 		}
